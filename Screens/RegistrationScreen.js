@@ -9,12 +9,12 @@ import {
 } from "react-native";
 
 export default function Form() {
-  const [name, setName] = useState("Логін");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("Пароль");
+  const [password, setPassword] = useState("");
 
-  const [text, onChangeText] = React.useState("Useless Text");
-  const [number, onChangeNumber] = React.useState("");
+  // const [text, onChangeText] = React.useState("Useless Text");
+  // const [number, onChangeNumber] = React.useState("");
 
   return (
     <View style={styles.container}>
@@ -33,13 +33,24 @@ export default function Form() {
           keyboardType="numeric"
         /> */}
 
-      <TextInput style={styles.input} value={name} />
       <TextInput
         style={styles.input}
+        value={name}
+        onChangeText={setName}
+        placeholder="Логін"
+      />
+      <TextInput
+        style={styles.input}
+        onChangeText={setEmail}
         value={email}
         placeholder="Адреса електронної пошти"
       />
-      <TextInput style={styles.input} value={password} />
+      <TextInput
+        style={styles.input}
+        value={password}
+        onChangeText={setPassword}
+        placeholder="Пароль"
+      />
       <Button style={styles.button} title="Зареєстуватися" />
       {/* </SafeAreaView> */}
     </View>
@@ -47,8 +58,10 @@ export default function Form() {
 }
 const styles = StyleSheet.create({
   container: {
-    flex: 5.8,
+    top: 103,
+    flex: 0.6,
     width: 400,
+
     borderRadius: 25,
     backgroundColor: "#fff",
     alignItems: "center",
