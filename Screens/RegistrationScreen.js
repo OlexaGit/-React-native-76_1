@@ -22,9 +22,6 @@ export default function Form() {
     Alert.alert("Credentials", `${name} + ${password}`);
   };
 
-  // const [text, onChangeText] = React.useState("Useless Text");
-  // const [number, onChangeNumber] = React.useState("");
-
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={styles.container}>
@@ -51,6 +48,7 @@ export default function Form() {
             onChangeText={setPassword}
             placeholder="Пароль"
             secureTextEntry
+            multiline
           />
           <View style={styles.button}>
             <Button title="Зареєстуватися" onPress={onLogin} />
