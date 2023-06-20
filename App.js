@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, View, Image } from "react-native";
 import Form from "./Screens/RegistrationScreen";
 
 export default function App() {
@@ -11,7 +11,7 @@ export default function App() {
         style={styles.image}
       ></Image>
       <Form />
-      <StatusBar style="auto" />
+      {/* <StatusBar style="auto" /> */}
     </View>
   );
 }

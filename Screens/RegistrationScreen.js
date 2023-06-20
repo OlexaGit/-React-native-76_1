@@ -52,22 +52,19 @@ export default function Form() {
             placeholder="Пароль"
             secureTextEntry
           />
-          <Button
-            style={styles.button}
-            title="Зареєстуватися"
-            onPress={onLogin}
-          />
-
-          <Text style={styles.text}>Вже є акаунт? Увійти</Text>
+          <View style={styles.button}>
+            <Button title="Зареєстуватися" onPress={onLogin} />
+          </View>
         </KeyboardAvoidingView>
+        <Text style={styles.text}>Вже є акаунт? Увійти</Text>
       </View>
     </TouchableWithoutFeedback>
   );
 }
 const styles = StyleSheet.create({
   container: {
-    top: 103,
-    flex: 0.6,
+    top: 120,
+    flex: 0.7,
     width: 400,
     borderRadius: 25,
     backgroundColor: "#fff",
@@ -76,7 +73,11 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: "##FF6C00",
-    borderRadius: 35,
+    borderRadius: 55,
+    marginTop: 50,
+    width: 150,
+    // alignItems: "center",
+    // justifyContent: "center",
   },
   title: {
     fontSize: 30,
@@ -91,6 +92,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 8,
     padding: 10,
+    // flex: 1,
     // fontFamily: "Roboto",
     // fontStyle: "normal",
     // fontWeight: 400,
@@ -105,7 +107,10 @@ const styles = StyleSheet.create({
     // font-family: 'Roboto';
     // font-style: normal;
     // font-weight: 400;
+    top: 20,
     fontSize: 16,
+    alignItems: "center",
+    // justifyContent: "center",
     // line-height: 19px;
     /* identical to box height */
 
