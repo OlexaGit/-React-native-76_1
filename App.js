@@ -3,11 +3,9 @@ import { StyleSheet, Text, View, Image } from "react-native";
 import Form from "./Screens/RegistrationScreen";
 
 export default function App() {
-  // const image = "./photo/PhotoBG.png";
   return (
     <View style={styles.container}>
       <Image
-        // source={image}
         source={require("./Screens/photo/PhotoBG.png")}
         // resizeMode="cover"
         style={styles.image}
@@ -26,10 +24,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   image: {
-    // width: 700,
-    // height: 700,
-    // flex: 10,
     position: "absolute",
-    //   justifyContent: "center",
   },
 });

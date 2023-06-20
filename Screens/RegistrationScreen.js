@@ -6,6 +6,11 @@ import {
   // SafeAreaView,
   TextInput,
   Button,
+  TouchableWithoutFeedback,
+  Keyboard,
+  KeyboardAvoidingView,
+  Platform,
+  Alert,
 } from "react-native";
 
 export default function Form() {
@@ -13,47 +18,50 @@ export default function Form() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const onLogin = () => {
+    Alert.alert("Credentials", `${name} + ${password}`);
+  };
+
   // const [text, onChangeText] = React.useState("Useless Text");
   // const [number, onChangeNumber] = React.useState("");
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Реєстрація</Text>
-      {/* <SafeAreaView> */}
-      {/* <TextInput
-          style={styles.input}
-          onChangeText={onChangeText}
-          value={text}
-        />
-        <TextInput
-          style={styles.input}
-          onChangeText={onChangeNumber}
-          value={number}
-          placeholder="useless placeholder"
-          keyboardType="numeric"
-        /> */}
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <View style={styles.container}>
+        <Text style={styles.title}>Реєстрація</Text>
+        <KeyboardAvoidingView
+          behavior={Platform.OS == "ios" ? "padding" : "height"}
+        >
+          <TextInput
+            style={styles.input}
+            value={name}
+            onChangeText={setName}
+            placeholder="Логін"
+          />
+          <TextInput
+            style={styles.input}
+            onChangeText={setEmail}
+            value={email}
+            placeholder="Адреса електронної пошти"
+            // autoComplete={email}
+          />
+          <TextInput
+            style={styles.input}
+            value={password}
+            onChangeText={setPassword}
+            placeholder="Пароль"
+            secureTextEntry
+          />
+          <Button
+            style={styles.button}
+            title="Зареєстуватися"
+            onPress={onLogin}
+          />
 
-      <TextInput
-        style={styles.input}
-        value={name}
-        onChangeText={setName}
-        placeholder="Логін"
-      />
-      <TextInput
-        style={styles.input}
-        onChangeText={setEmail}
-        value={email}
-        placeholder="Адреса електронної пошти"
-      />
-      <TextInput
-        style={styles.input}
-        value={password}
-        onChangeText={setPassword}
-        placeholder="Пароль"
-      />
-      <Button style={styles.button} title="Зареєстуватися" />
-      {/* </SafeAreaView> */}
-    </View>
+          <Text style={styles.text}>Вже є акаунт? Увійти</Text>
+        </KeyboardAvoidingView>
+      </View>
+    </TouchableWithoutFeedback>
   );
 }
 const styles = StyleSheet.create({
@@ -61,7 +69,6 @@ const styles = StyleSheet.create({
     top: 103,
     flex: 0.6,
     width: 400,
-
     borderRadius: 25,
     backgroundColor: "#fff",
     alignItems: "center",
@@ -70,7 +77,6 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: "##FF6C00",
     borderRadius: 35,
-    top: 200,
   },
   title: {
     fontSize: 30,
@@ -94,5 +100,17 @@ const styles = StyleSheet.create({
     // left: 16,
     // right: 16,
     top: 32,
+  },
+  text: {
+    // font-family: 'Roboto';
+    // font-style: normal;
+    // font-weight: 400;
+    fontSize: 16,
+    // line-height: 19px;
+    /* identical to box height */
+
+    // text-align: center;
+
+    color: "#1B4371",
   },
 });
